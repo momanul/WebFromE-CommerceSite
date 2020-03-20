@@ -1,0 +1,173 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Buy.com.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <link href="Content/myStylesheet.css" rel="stylesheet" />
+</head>
+<body>
+    <style>
+        .col-xs-11, .col-sm-1, .col-md-3, .col-sm-4, .col-xs-6, .col-sm-6, .col-sm-5, .col-sm-12{
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+            top: 0px;
+            left: -5px;
+        }
+    </style>
+    <form runat="server">
+        <div id="flipkart-navbar">
+            <div class="container">
+                <div class="row row1">                    
+                    <h3 class="header-text">All Your <strong style="color:#11B57C;">Need</strong> is Here</h3>
+                    <div class="col-xs-1 col-md-1 col-sm-1">
+                            <h2 style="margin: 0px;"><span class="smallnav menu" onclick="">☰ Buy.com</span></h2>
+                            <h1 style="margin: 0px;"><span class="largenav">
+                                <a href="Default.aspx"><img src="Photos/newLogo.png" /></a>
+                            </span></h1>
+                    </div>
+                    <div class="row1 col-xs-11 col-md-11 col-sm-11">
+                        <ul class="largenav pull-right">
+                            <li class="upper-links"><a class="links" href="Admin/AdminHomePage.aspx"><h4><span class="glyphicon glyphicon-user"></span> Admin</h4></a></li>
+                            <li class="upper-links"><a class="links" href="#"><span class="glyphicon glyphicon-plus-sign"></span> Sell</a></li>
+                            <li class="upper-links"><a class="links" href="#"><span class="glyphicon glyphicon-pencil"></span> Register</a></li>
+                            <li class="upper-links"><a class="links" href="#"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+                            <li class="upper-links"><a class="links" href="#"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+                            <li class="upper-links">
+                                <a class="links" href="#">
+                                    <h4><span class="glyphicon glyphicon-bell"></span></h4>
+                                </a>
+                            </li>
+                            <li class="upper-links dropdown">
+                                <a class="links" href="#">Departments</a>
+                                <ul class="dropdown-menu">
+                                    <li class="profile-li"><a class="profile-links" href="#">Entertainmet</a></li>
+                                    <li class="profile-li"><a class="profile-links" href="#">Men's Fashion</a></li>
+                                    <li class="profile-li"><a class="profile-links" href="#">Girls' Fashion</a></li>
+                                    <li class="profile-li"><a class="profile-links" href="#">Boys' Fashion</a></li>
+                                    <li class="profile-li"><a class="profile-links" href="#">Crockeries</a></li>
+                                    <li class="profile-li"><a class="profile-links" href="#">Books</a></li>
+                                    <li class="profile-li"><a class="profile-links" href="#">Electronics</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="row row2">
+                    <div class="flipkart-navbar-search smallsearch col-sm-10 col-xs-11">
+                        <div class="row">
+                            <div class="col-xs-11">
+                                <div class="col-xs-1">
+                                </div>
+                                <div class="col-xs-11">
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <asp:DropDownList  CssClass="btn dropdown-button" ID="DropDownList1" runat="server">
+                                                
+                                            </asp:DropDownList>
+                                            <asp:SqlDataSource ID="CategoryForhomePageDropDown" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Name], [ID] FROM [Category]"></asp:SqlDataSource>
+                                        </div>
+                                        <asp:TextBox ID="txtSearch" CssClass="form-control navbar-input" runat="server"></asp:TextBox>
+                                        <span class="input-group-btn"> 
+                                            <asp:Button class="btn navbar-button" ID="Button1" runat="server" Text="‎Search" OnClick="Button1_Click" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart largenav col-sm-1">
+                                <a class="cart-button">
+                                    <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
+                                        <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
+                                    </svg>
+                                    Link<span class="item-number ">0</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <div class="container" style="background-color: #2874f0; padding-top: 10px;">
+                <span class="sidenav-heading">Home</span>
+                <a href="#" class="closebtn" onclick="">×</a>
+            </div>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+        </div>
+        <div class="cotactForm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-lg-4">
+                    <h3>Get to Know Us</h3>
+                    <ul>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Inverstator Relation</a></li>
+                        <li><a href="#">Our Devices</a></li>
+                        <li><a href="#">Visit Our Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 col-lg-4">
+                    <h3>Make Money with Us</h3>
+                    <ul>
+                        <li><a href="#">Sell With Us</a></li>
+                        <li><a href="#">Sell Your Services With Us</a></li>
+                        <li><a href="#">Share Your Business</a></li>
+                        <li><a href="#">Sell Your Apps With Us</a></li>
+                        <li><a href="#">Become an Affiliate</a></li>
+                        <li><a href="#">Advertise Your Products</a></li>
+                        <li><a href="#">Self-Publish with Us</a></li>
+                        <li><a href="#">Find Your Opportunity</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-12 col-lg-4">
+                    <h3>Let Us Help You</h3>                    
+                    <ul>
+                        <li><a href="#">Your Account</a></li>
+                        <li><a href="#">Your Orders</a></li>
+                        <li><a href="#">Shipping Rates & Policies</a></li>
+                        <li><a href="#">Returns & Replacements</a></li>
+                        <li><a href="#">Manage Your Content and Devices</a></li>
+                        <li><a href="#">Amazon Assistant</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>       
+   <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="Photos/newLogo.png" />
+                </div>
+                <div class="col-sm-6">
+                    buy.com Copyright &copy; 2016
+                </div>
+            </div>
+        </div>
+    </footer>
+    </form>
+    <script src="Scripts/MyScripts/SliderScripts.js"></script>
+<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>--%>
+</body>
+</html>

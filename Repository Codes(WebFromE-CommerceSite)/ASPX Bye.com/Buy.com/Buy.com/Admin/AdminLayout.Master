@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminLayout.master.cs" Inherits="IDB.WebForm.PJ1.Admin.AdminLayout" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+            background: #384351;
+        }
+
+        footer {
+            width: 100%;
+            min-height: 80px;
+            text-align: center;
+            line-height: 80px;
+            background: #193441;
+            color: #D5D5D5;
+        }
+        .logStatusButton{
+            color: white;
+            margin: 15px 20px;
+        }
+        .btn-primary{
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+             height: auto; 
+             width:500px; 
+            margin-top: 56px;
+        }
+        .col-xs-11, .col-sm-1, .col-md-3, .col-sm-4,.col-md-4, .col-xs-6,.col-md-11,.col-sm-11, .col-sm-6,.col-sm-2,.col-md-5,.col-md-2, .col-sm-5, .col-sm-12{
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+            top: 0px;
+            left: -5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../Default.aspx">Go To Home Page</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="../Admin/AdminHomePage.aspx">Admin Home Page</a></li>
+                     <li class=""><a href="../Admin/ViewCristalReport.aspx">View Cristal Report</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <asp:Label ID="Label1" runat="server">
+                    <li><a href="../Account/Login.aspx"><span class="glyphicon glyphicon-log-in logStatusButton"></span>Login</a></li></asp:Label>
+                    <asp:Label ID="Label2" runat="server" >
+                        <asp:Button ID="Button1" runat="server" Text="Log Off" class="logStatusButton" OnClick="btnLogOut_Click"
+                            style="background: inherit; border: 0px;"/>
+                    </asp:Label>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="../Photos/newLogo.png" />
+                </div>
+                <div class="col-sm-6">
+                    buy.com Copyright &copy; 2016
+                </div>
+            </div>
+        </div>
+    </footer>
+    </form>
+</body>
+    
+</html>
